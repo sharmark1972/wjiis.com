@@ -83,7 +83,7 @@ export default function IssuesPage() {
         params.append('volume', volumeFilter);
       }
 
-      const response = await fetch(`/api/issues?${params.toString()}`);
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/issues?${params.toString()}`);
       if (!response.ok) {
         throw new Error('Failed to fetch issues');
       }
