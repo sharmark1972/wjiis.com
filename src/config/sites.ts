@@ -28,20 +28,6 @@ const sites: Record<string, SiteConfig> = {
     r2PublicUrlEnvVar: 'R2_PUBLIC_URL_WJIIS',
     nextauthSecretEnvVar: 'NEXTAUTH_SECRET_WJIIS',
   },
-  ijarcm: {
-    slug: 'ijarcm',
-    domain: 'ijarcm.com',
-    name: 'International Journal of Academic Research in Commerce and Management',
-    shortName: 'IJARCM',
-    description: 'A peer-reviewed international journal for research in commerce and management.',
-    dbEnvVar: 'DATABASE_URL_IJARCM',
-    smtpUserEnvVar: 'SMTP_USER_IJARCM',
-    smtpPassEnvVar: 'SMTP_PASS_IJARCM',
-    smtpFromEnvVar: 'SMTP_FROM_IJARCM',
-    r2BucketEnvVar: 'R2_BUCKET_IJARCM',
-    r2PublicUrlEnvVar: 'R2_PUBLIC_URL_IJARCM',
-    nextauthSecretEnvVar: 'NEXTAUTH_SECRET_IJARCM',
-  },
 };
 
 const DEV_SITE_SLUG = 'wjiis';
