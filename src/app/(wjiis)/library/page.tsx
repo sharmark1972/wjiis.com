@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import DOMPurify from 'dompurify';
 import Link from 'next/link';
 import { useSession } from 'next-auth/react';
 import {
@@ -534,9 +535,10 @@ export default function LibraryPage() {
                             </h3>
                           </Link>
 
-                          <p className="text-slate-600 text-sm leading-relaxed mb-4 line-clamp-3 flex-1">
-                            {paper.abstract}
-                          </p>
+                          <div
+                            className="text-slate-600 text-sm leading-relaxed mb-4 line-clamp-3 flex-1"
+                            dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(paper.abstract) }}
+                          />
 
                           {/* Authors */}
                           <div className="flex items-center gap-2 mb-4 text-sm text-slate-600">

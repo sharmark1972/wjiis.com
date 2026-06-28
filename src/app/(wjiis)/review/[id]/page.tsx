@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
+import DOMPurify from 'dompurify';
 import { useParams, useRouter } from 'next/navigation';
 import { useAuth } from '@/hooks/useAuth';
 import { 
@@ -302,7 +303,10 @@ export default function ReviewPaperPage() {
               {/* Abstract */}
               <div className="mb-4">
                 <h3 className="text-sm font-medium text-gray-900 mb-2">Abstract</h3>
-                <p className="text-sm text-gray-600 leading-relaxed">{paper.abstract}</p>
+                <div
+                  className="text-sm text-gray-600 leading-relaxed"
+                  dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(paper.abstract) }}
+                />
               </div>
 
               {/* Keywords */}

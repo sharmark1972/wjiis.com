@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import DOMPurify from 'dompurify';
 import Link from 'next/link';
 import {
   ArrowRight,
@@ -252,9 +253,10 @@ export default function HomePage() {
                       <Link href={`/papers/${paper.id}`}>{paper.title}</Link>
                     </h3>
 
-                    <p className="text-slate-600 text-sm leading-relaxed line-clamp-3 mb-4">
-                      {paper.abstract}
-                    </p>
+                    <div
+                      className="text-slate-600 text-sm leading-relaxed line-clamp-3 mb-4"
+                      dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(paper.abstract) }}
+                    />
 
                     <div className="mb-4 text-xs text-slate-500">
                       <span className="font-semibold" style={{color: '#1a6b7a'}}>Authors:</span> {paper.authors.join(', ')}
